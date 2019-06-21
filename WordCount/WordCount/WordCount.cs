@@ -19,12 +19,12 @@ namespace WordCount
                 this.FileContent = filecontent;
             }
 
-            /// <summary>
-            /// Return the number of words in the text as a dictionary (word,count)
-            /// </summary>
-            /// <param name="limit">return the top 'limit' (default is 10) entries</param>
-            /// <returns></returns>
-            public IDictionary<string, int> GetTopWords(int limit = 10)
+        /// <summary>
+        /// Return the number of words in the text as a dictionary (word,count)
+        /// </summary>
+        /// <param name="limit">return the top 'limit' (default is 10) entries</param>
+        /// <returns></returns>
+        public IDictionary<string, int> GetTopWords(int limit = 10)
             {
                 Dictionary<string,int> filesplit = null;
                 try
@@ -40,6 +40,12 @@ namespace WordCount
                         .OrderByDescending(groupedword => groupedword.Count())
                         .Take(limit)
                         .ToDictionary(groupedword => groupedword.Key, groupedword => groupedword.Count());
+
+                        if (filesplit != null)
+                        {
+                            int i = 1;
+                            Console.WriteLine($"{string.Join("\r\n", filesplit.Select(kvp => $"{i++,2}: {kvp.Value,6} instances of {kvp.Key}").ToArray())}");
+                        }
                     }
                     catch (Exception) { }
                 }

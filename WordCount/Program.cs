@@ -20,12 +20,6 @@ namespace WordCount
 
                 WordCount wc = new WordCount(filecontent);
                 var topwords = wc.GetTopWords();
-                
-                if (topwords != null)
-                {
-                    int i = 1;
-                    Console.WriteLine($"{string.Join("\r\n", topwords.Select(kvp=>$"{i++,2}: {kvp.Value,6} instances of {kvp.Key}").ToArray())}");
-                }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
