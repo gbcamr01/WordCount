@@ -1,0 +1,10 @@
+Here are a few of the assumptions made
+
+1. The requested URL could be accessed and the site is not down/security isses
+2. The URL is not particularly large so data retrieved in an ordeley timeline
+3. The file has been split using the variables 
+	new char[] { ',', '.', '\t', '\r', '\n', '/', '\\', ' ', '\"', ':', ';', '|', ')', '(', '#', '<', '>', '{', '}', '!', '=', '-', '_', '+', '&', '?', };
+4. The character ' should be added but in doing this words like You've, Have'nt would yield strange results
+5. Words like You've......
+
+
